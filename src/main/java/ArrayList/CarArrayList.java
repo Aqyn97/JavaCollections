@@ -33,9 +33,7 @@ public class CarArrayList implements CarList {
     @Override
     public boolean removeAt(int index) {
         checkIndex(index);
-        for(int i = index ; i < size - 1 ; i++){
-            array[i] = array[i+1];
-        }
+        System.arraycopy(array , index  + 1  ,array , index , size - index - 1);
         size--;
         return true;
     }
@@ -58,9 +56,10 @@ public class CarArrayList implements CarList {
     @Override
     public void add(Car car , int index){
         increaseArray();
-        for(int i = size ; i > index ; i--){
-            array[i] = array[i - 1];
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
         }
+        System.arraycopy(array , index , array , index + 1 , size - index);
         array[index] = car;
         size++;
     }
