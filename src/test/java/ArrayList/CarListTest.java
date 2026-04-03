@@ -16,7 +16,7 @@ class CarListTest {
         //init
     }
     @Test
-    public void whenAdded100ElementsThenSizeMustBe100(){
+    public void whenAddedc100ElementsThenSizeMustBe100(){
         assertEquals(100 , carList.size());
     }
     @Test
